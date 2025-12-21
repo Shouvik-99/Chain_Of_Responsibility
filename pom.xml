@@ -8,23 +8,31 @@
 		<version>4.0.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.think.and.code.with.shoupri</groupId>
-	<artifactId>chain.of.responsibility</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>chain.of.responsibility</name>
+	<groupId>io.github.shouvik-99</groupId>
+	<artifactId>chain-of-responsibility</artifactId>
+	<version>1.0.3</version>
+	<packaging>jar</packaging>
+	<name>chain-of-responsibility</name>
 	<description>Chain of Responsibility</description>
-	<url/>
+	<url>https://github.com/Shouvik-99/Chain_Of_Responsibility</url>
 	<licenses>
-		<license/>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
 	</licenses>
 	<developers>
-		<developer/>
+		<developer>
+			<id>shouvik</id>
+			<name>Shouvik</name>
+			<email>shouvikdutta1999@gmail.com</email>
+		</developer>
 	</developers>
 	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
+		<connection>scm:git:https://github.com/Shouvik-99/Chain_Of_Responsibility.git</connection>
+		<developerConnection>scm:git:ssh://github.com/Shouvik-99/Chain_Of_Responsibility.git</developerConnection>
+		<url>https://github.com/Shouvik-99/Chain_Of_Responsibility.git</url>
 	</scm>
 	<properties>
 		<java.version>17</java.version>
@@ -55,6 +63,18 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>repackage</id>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+						<configuration>
+							<!-- IMPORTANT -->
+							<classifier>boot</classifier>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -68,6 +88,58 @@
 							<version>1.18.26</version>
 						</path>
 					</annotationProcessorPaths>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.3.0</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.6.3</version>
+				<configuration>
+					<failOnError>false</failOnError>
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>3.2.4</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.sonatype.central</groupId>
+				<artifactId>central-publishing-maven-plugin</artifactId>
+				<version>0.9.0</version>
+				<extensions>true</extensions>
+				<configuration>
+					<publishingServerId>central</publishingServerId>
 				</configuration>
 			</plugin>
 		</plugins>
