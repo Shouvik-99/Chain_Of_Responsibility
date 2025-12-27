@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>io.github.shouvik-99</groupId>
 	<artifactId>chain-of-responsibility</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.4</version>
 	<packaging>jar</packaging>
 	<name>chain-of-responsibility</name>
 	<description>Chain of Responsibility</description>
